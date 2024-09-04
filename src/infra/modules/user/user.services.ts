@@ -1,27 +1,33 @@
+import { UserEntity } from '@/infra/database/entities/user.entity';
 import { UserRepository } from '@/infra/repositories/user-repository';
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class UserService {
-  constructor(private readonly db: UserRepository) {}
+  constructor(
+    @InjectRepository(UserEntity)
+    private db: Repository<UserEntity>,
+  ) {}
 
   async findAll() {
-    return await this.db.getUsers();
+    return await this.db.find();
   }
 
-  async findById(id: string) {
-    return await this.db.getUserById(id);
+  async findById(id: string): Promise<UserEntity | null> {
+    return await this.db.findOneBy({ id });
   }
 
-  async create(user) {
-    return await this.db.createUser(user);
+  async create(user: UserEntity) {
+    return this.db.create(user);
   }
 
-  async update(id, user) {
-    return await this.db.updateUser(id, user);
+  async update(id: string, user: UserEntity) {
+    return await this.db.update(id, user);
   }
 
-  async delete(id) {
-    return await this.db.deleteUser(id);
+  async delete(id: string, user: UserEntity) {
+    return await this.db.update(id, user);
   }
 }
