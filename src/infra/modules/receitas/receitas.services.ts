@@ -1,5 +1,7 @@
 import { ReceitasRepository } from '@/infra/repositories/receitas-repository';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class ReceitasServices {
   constructor(private readonly db: ReceitasRepository) {}
 
