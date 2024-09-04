@@ -1,26 +1,26 @@
-import { Despesas } from "@/domain/entities/despesa";
-import { IDespesasRepository } from "@/domain/contracts/despesas-repository";
+import { Despesa } from '@/domain/entities/despesa';
+import { IDespesasRepository } from '@/domain/contracts/despesas-repository';
 
 type Input = {
-	id: string;
+  id: string;
 };
-type Output = Despesas;
-type GetDespesas = (input: Input) => Promise<Output>;
-type SetupGetDespesas = {
-	repository: IDespesasRepository;
+type Output = Despesa;
+type GetDespesa = (input: Input) => Promise<Output>;
+type SetupGetDespesa = {
+  repository: IDespesasRepository;
 };
-type Setup = (props: SetupGetDespesas) => GetDespesas;
+type Setup = (props: SetupGetDespesa) => GetDespesa;
 
 export const setupGetDespesas: Setup =
-	({ repository }) =>
-	async ({ id }) => {
-		try {
-			const despesas = await repository.getDespesaById(id);
-			if (!despesas) throw new Error("Nenhuma despesa encontrada");
-			return despesas;
-		} catch (error) {
-			throw new Error("Could not get despesas: " + error, {
-				cause: "get-despesas",
-			});
-		}
-	};
+  ({ repository }) =>
+  async ({ id }) => {
+    try {
+      const despesa = await repository.getDespesaById(id);
+      if (!despesa) throw new Error('Nenhuma despesa encontrada');
+      return despesaƒ;
+    } catch (error) {
+      throw new Error('Could not get despesas: ' + error, {
+        cause: 'get-despesas',
+      });
+    }
+  };
