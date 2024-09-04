@@ -1,8 +1,10 @@
-export type Receitas = {
-  id?: string;
-  name: string;
-  description: string;
-  value: number;
-  date: Date;
-  deleted: boolean;
-};
+export class Receita {
+  constructor(
+    public readonly id: string,
+    public readonly name: string,
+    public readonly description: string,
+    public readonly value: number,
+    public readonly date: Date,
+    public readonly deleted: boolean,
+  ) {}
+}
