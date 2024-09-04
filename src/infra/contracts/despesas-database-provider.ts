@@ -1,4 +1,4 @@
-import { Despesas } from "@/domain/entities/despesas";
+import { Despesas } from "@/domain/entities/despesa";
 
 export interface IDespesasDatabaseProvider {
 	getDespesas(): Promise<Despesas[]>;
