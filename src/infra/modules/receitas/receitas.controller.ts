@@ -8,7 +8,7 @@ import {
   Body,
 } from '@nestjs/common';
 import { ReceitasServices } from './receitas.services';
-
+@Controller('receitas')
 export class ReceitasController {
   constructor(private readonly receitasService: ReceitasServices) {}
 
