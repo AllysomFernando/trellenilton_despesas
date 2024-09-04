@@ -17,8 +17,6 @@ export const setupGetUsers: Setup =
       if (!users.length) throw new Error('Nenhum usuário encontrado');
       return users;
     } catch (error) {
-      throw new Error('Could not get users: ' + error, {
-        cause: 'get-users',
-      });
+      throw new Error('Could not get users: ' + error);
     }
   };

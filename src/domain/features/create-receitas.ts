@@ -30,8 +30,6 @@ export const SetupCreateReceitas: Setup =
         deleted: false,
       });
     } catch (error) {
-      throw new Error('Could not create receita: ' + error, {
-        cause: 'create-receitas',
-      });
+      throw new Error(`Could not create receita: ${error}`);
     }
   };

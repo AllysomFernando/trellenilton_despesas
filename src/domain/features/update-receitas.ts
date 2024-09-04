@@ -21,9 +21,7 @@ export const setupUpdateReceitas: Setup =
   async ({ id, description, value, date, name }: Input) => {
     const receita = await repository.getReceitaById(id);
     if (!receita)
-      throw new Error(`Receitas with the id ${id} not found`, {
-        cause: 'receitas-not-found',
-      });
+      throw new Error(`Receitas with the id ${id} not found`);
     if (!description) throw new Error('Descrição é obrigatória');
     if (!value) throw new Error('value é obrigatório');
     if (!name) throw new Error('Nome é obrigatório');
@@ -36,8 +34,6 @@ export const setupUpdateReceitas: Setup =
         deleted: false,
       });
     } catch (error) {
-      throw new Error('Could not update receita: ' + error, {
-        cause: 'update-receitas',
-      });
+      throw new Error(`Could not update receita: ${error}`);
     }
   };

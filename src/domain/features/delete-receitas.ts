@@ -29,8 +29,6 @@ export const setupDeleteReceitas: Setup =
         statusCode: 200,
       };
     } catch (error) {
-      throw new Error('Could not delete receita: ' + error, {
-        cause: 'delete-receita',
-      });
+      throw new Error(`Could not delete receita: ${error}`);
     }
   };

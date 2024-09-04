@@ -29,8 +29,6 @@ export const setupDeleteDespesas: Setup =
         statusCode: 200,
       };
     } catch (error) {
-      throw new Error('Could not delete despesa: ' + error, {
-        cause: 'delete-despesa',
-      });
+      throw new Error('Could not delete despesa: ' + error);
     }
   };

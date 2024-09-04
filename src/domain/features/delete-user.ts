@@ -30,8 +30,6 @@ export const setupDeleteUser: Setup =
         statusCode: 200,
       };
     } catch (error) {
-      throw new Error('Could not delete user: ' + error, {
-        cause: 'delete-user',
-      });
+      throw new Error('Could not delete user: ' + error);
     }
   };

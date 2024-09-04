@@ -19,8 +19,6 @@ export const setupGetReceitas: Setup =
       if (!receitas) throw new Error('Nenhuma receita encontrada');
       return receitas;
     } catch (error) {
-      throw new Error('Could not get receitas: ' + error, {
-        cause: 'get-receitas',
-      });
+      throw new Error('Could not get receitas: ' + error);
     }
   };

@@ -19,8 +19,6 @@ export const setupGetUserById: Setup =
       if (!user) throw new Error('Nenhum usuário encontrado');
       return user;
     } catch (error) {
-      throw new Error('Could not get user: ' + error, {
-        cause: 'get-user-by-id',
-      });
+      throw new Error('Could not get user: ' + error);
     }
   };

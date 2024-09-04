@@ -20,9 +20,7 @@ export const setupUpdateDespesas: Setup =
   async ({ id, description, value, date, name }: Input) => {
     const despesa = await repository.getDespesaById(id);
     if (!despesa)
-      throw new Error(`Despesawith the id ${id} not found`, {
-        cause: 'despesas-not-found',
-      });
+      throw new Error(`Despesa with the id ${id} not found`);
     if (!description) throw new Error('Descrição é obrigatória');
     if (!value) throw new Error('value é obrigatório');
     if (!name) throw new Error('Nome é obrigatório');
@@ -35,8 +33,6 @@ export const setupUpdateDespesas: Setup =
         deleted: false,
       });
     } catch (error) {
-      throw new Error('Could not update despesa: ' + error, {
-        cause: 'update-despesas',
-      });
+      throw new Error('Could not update despesa: ' + error);
     }
   };

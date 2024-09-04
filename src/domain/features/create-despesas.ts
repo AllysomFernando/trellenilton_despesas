@@ -30,8 +30,6 @@ export const setupCreateDespesas: Setup =
         deleted: false,
       });
     } catch (error) {
-      throw new Error('Could not create despesa: ' + error, {
-        cause: 'create-despesas',
-      });
+      throw new Error(`Could not create despesa: ${error}`);
     }
   };

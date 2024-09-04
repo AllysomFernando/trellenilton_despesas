@@ -20,9 +20,7 @@ export const setupUpdateUser: Setup =
   async ({ id, name, email, password, deleted }: Input) => {
     const user = await repository.getUserById(id);
     if (!user)
-      throw new Error(`User with the id ${id} not found`, {
-        cause: 'user-not-found',
-      });
+      throw new Error(`User with the id ${id} not found`);
     if (!name) throw new Error('Nome é obrigatório');
     try {
       return await repository.updateUser(id, {
@@ -32,8 +30,6 @@ export const setupUpdateUser: Setup =
         deleted,
       });
     } catch (error) {
-      throw new Error('Could not update user: ' + error, {
-        cause: 'update-user',
-      });
+      throw new Error('Could not update user: ' + error);
     }
   };

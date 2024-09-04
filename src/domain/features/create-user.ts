@@ -28,8 +28,6 @@ export const setupCreateUser: Setup =
         deleted: false,
       });
     } catch (error) {
-      throw new Error('Could not create user: ' + error, {
-        cause: 'create-user',
-      });
+      throw new Error('Could not create user: ' + error);
     }
   };
