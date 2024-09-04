@@ -1,36 +1,36 @@
-import { IDespesasRepository } from "@/domain/contracts/despesas-repository";
-import { Despesas } from "@/domain/entities/despesa";
+import { IDespesasRepository } from '@/domain/contracts/despesas-repository';
+import { Despesa } from '@/domain/entities/despesa';
 
 type Input = {
-	id: string;
-	despesas: Pick<Despesas, "deleted">;
+  id: string;
+  despesa: Pick<Despesa, 'deleted'>;
 };
 type Output = {
-	message: string;
-	statusCode: number;
+  message: string;
+  statusCode: number;
 };
-type DeleteDespesas = (input: Input) => Promise<Output>;
-type SetupDeleteDespesas = {
-	repository: IDespesasRepository;
+type DeleteDespesa = (input: Input) => Promise<Output>;
+type SetupDeleteDespesa = {
+  repository: IDespesasRepository;
 };
-type Setup = (props: SetupDeleteDespesas) => DeleteDespesas;
+type Setup = (props: SetupDeleteDespesa) => DeleteDespesa;
 
 export const setupDeleteDespesas: Setup =
-	({ repository }) =>
-	async ({ despesas, id }) => {
-		try {
-			if (!id) throw new Error("Id não informado");
-			if (despesas.deleted) {
-				throw new Error("Despesa já deletada");
-			}
-			await repository.deleteDespesa(id);
-			return {
-				message: "Despesa deletada com sucesso",
-				statusCode: 200,
-			};
-		} catch (error) {
-			throw new Error("Could not delete despesa: " + error, {
-				cause: "delete-despesa",
-			});
-		}
-	};
+  ({ repository }) =>
+  async ({ despesa, id }) => {
+    try {
+      if (!id) throw new Error('Id não informado');
+      if (despesa.deleted) {
+        throw new Error('Despesa já deletada');
+      }
+      await repository.deleteDespesa(id);
+      return {
+        message: 'Despesa deletada com sucesso',
+        statusCode: 200,
+      };
+    } catch (error) {
+      throw new Error('Could not delete despesa: ' + error, {
+        cause: 'delete-despesa',
+      });
+    }
+  };
