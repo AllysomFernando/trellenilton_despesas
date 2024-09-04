@@ -1,17 +1,22 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity("despesas")
+@Entity('despesas')
 export class DespesasEntity {
-    
-	@PrimaryGeneratedColumn("uuid")
-	id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-	@Column()
-	name: string;
+  @Column()
+  name: string;
 
-	@Column()
-	description: string;
+  @Column()
+  description: string;
 
-	@Column()
-	value: number;
+  @Column()
+  value: number;
+
+  @Column()
+  date: Date;
+
+  @Column()
+  deleted: boolean;
 }
