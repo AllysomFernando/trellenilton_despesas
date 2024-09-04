@@ -1,9 +1,9 @@
-import { Receitas } from "@/domain/entities/receitas";
+import { Receita } from '@/domain/entities/receitas';
 
 export interface IReceitasRepository {
-	getReceitas(): Promise<Receitas[]>;
-	getReceitaById(id: string): Promise<Receitas>;
-	createReceita(receita: Receitas): Promise<Receitas>;
-	updateReceita(id: string, receita: Receitas): Promise<Receitas>;
-	deleteReceita(id: string): Promise<Receitas>;
+  getReceitas(): Promise<Receita[]>;
+  getReceitaById(id: string): Promise<Receita>;
+  createReceita(receita: Receita): Promise<Receita>;
+  updateReceita(id: string, receita: Receita): Promise<Receita>;
+  deleteReceita(id: string): Promise<Receita>;
 }
