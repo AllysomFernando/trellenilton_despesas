@@ -1,8 +1,8 @@
-import { IReceitasRepository } from "@/domain/contracts/receitas-repository";
-import { Receitas } from "@/domain/entities/receitas";
+import { IReceitasRepository } from "@/domain/contracts/receita-repository";
+import { Receita } from "@/domain/entities/receita";
 
 type Input = {};
-type Output = Receitas[];
+type Output = Receita[];
 type GetReceitas = (input: Input) => Promise<Output>;
 type SetupGetReceitas = {
 	repository: IReceitasRepository;
