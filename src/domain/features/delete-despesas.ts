@@ -1,4 +1,4 @@
-import { IDespesasRepository } from '@/domain/contracts/despesas-repository';
+import { IDespesasRepository } from '@/domain/contracts/despesa-repository';
 import { Despesa } from '@/domain/entities/despesa';
 
 type Input = {
