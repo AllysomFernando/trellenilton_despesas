@@ -1,4 +1,4 @@
-import { Receitas } from "@/domain/entities/receitas";
+import { Receita } from "@/domain/entities/receitas";
 
 export interface IReceitasDatabaseProvider {
 	getReceitas(): Promise<Receitas[]>;
