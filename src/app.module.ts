@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './infra/database/entities/user.entity';
 import { ReceitasEntity } from './infra/database/entities/receitas.entity';
 import { DespesasEntity } from './infra/database/entities/despesas.entity';
+import { DataSource } from 'typeorm';
 
 @Module({
   imports: [
@@ -19,4 +20,6 @@ import { DespesasEntity } from './infra/database/entities/despesas.entity';
     TypeOrmModule.forFeature([UserEntity, ReceitasEntity, DespesasEntity]),
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {}
+}
