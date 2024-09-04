@@ -7,6 +7,7 @@ import { UserEntity } from '@/infra/database/entities/user.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserEntity])],
+  exports: [TypeOrmModule],
   controllers: [UserController],
   providers: [UserService, UserRepository],
 })
