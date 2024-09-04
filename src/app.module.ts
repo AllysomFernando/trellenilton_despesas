@@ -7,12 +7,12 @@ import { DespesasEntity } from './infra/database/entities/despesas.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',
+      type: 'mysql',
       host: 'localhost',
-      port: 5432,
-      username: 'test',
-      password: 'test',
-      database: 'test',
+      port: 3306,
+      username: 'root',
+      password: 'NewPassw0rd!',
+      database: 'money_analitc',
       entities: [UserEntity, ReceitasEntity, DespesasEntity],
       synchronize: true,
     }),

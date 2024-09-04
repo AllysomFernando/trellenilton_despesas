@@ -17,6 +17,6 @@ export class DespesasEntity {
   @Column()
   date: Date;
 
-  @Column()
+  @Column({ default: false })
   deleted: boolean;
 }
