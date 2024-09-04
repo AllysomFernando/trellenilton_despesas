@@ -1,4 +1,4 @@
-import { Despesas } from "@/domain/entities/despesas";
+import { Despesas } from "@/domain/entities/despesa";
 import { IDespesasRepository } from "@/domain/contracts/despesas-repository";
 
 type Input = {};
