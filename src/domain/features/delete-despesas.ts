@@ -1,5 +1,5 @@
 import { IDespesasRepository } from "@/domain/contracts/despesas-repository";
-import { Despesas } from "@/domain/entities/despesas";
+import { Despesas } from "@/domain/entities/despesa";
 
 type Input = {
 	id: string;
