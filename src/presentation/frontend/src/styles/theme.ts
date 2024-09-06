@@ -1,74 +1,63 @@
-const theme = {
+export const theme = {
+  main: {
     colors: {
-      main: '#354455',
-      second: '#3C4C60',
-      third: '#2B3643',
-      fourth: '#6A82A0',
-      white: '#FCFCFC',
-      green: '#2F9F25',
-      red: '#d12020',
-      orange: '#FFA800',
-      blue: '#2D77CE',
-      gray: '#c8d3d5',
-  
-      lightGreen: '#CAFFC6',
-      lightRed: '#FFC6C6',
-      lightOrange: '#FFF6C6',
-      lightBlue: '#C6ECFF',
-      lightSecond: '#465A72',
-  
-      hoverGreen: '#298a20',
-      hoverRed: '#a11c1c',
-      hoverOrange: '#df9503',
-      hoverBlue: '#2563ab'
+      primary: '#7432E0',
+      secondary: '#1F1E21',
+      lightGray: '#F8F8F8',
+      lightTextColor: '#737373',
+      textColor: '#252B42',
+      backgroundColor: '#F7FCFD',
     },
     font: {
-      size: {
-        xsmall: '1rem',
-        small: '1.15rem',
-        medium: '1.5rem',
-        large: '2rem',
-        xlarge: '2.5rem',
-        xxlarge: '3rem',
-        giant: '4rem'
+      family: {
+        primary: 'Inter, sans-serif',
       },
       weight: {
-        light: '300',
-        regular: '400',
-        medium: '500',
-        bold: '700'
+        base: 400,
+        md: 500,
+        semiBold: 700,
+        bold: 800,
       },
-      family: {
-        main: 'Raleway',
-        roboto: "'roboto', sans-serif"
-      }
-    },
-    align: {
-      flexCenter: {
-        display: 'flex',
-        'justify-content': 'center',
-        'align-items': 'center'
-      }
-    },
-    dimensions: {
-      viewHeight: '100dvh',
-      viewWidth: '100vw',
-      allDisplay: '100%'
+      size: {
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.25rem',
+        xl: '1.75rem',
+        xxl: '2.5rem',
+      },
     },
     spacing: {
-      xsmall: '0.7rem',
-      small: '1rem',
-      medium: '2rem',
-      large: '2.5rem',
-      xlarge: '3rem'
-    },
-    misc: {
-      roundCorners: {
-        'border-radius': '30px'
+      y: {
+        sm: '0.5rem',
+        base: '1rem',
+        lg: '1.5rem',
+        xl: '3rem',
       },
-      thinBorder: 'border: 1px solid'
-    }
-  }
-  
-  export default theme
-  
+      x: {
+        lg: '1.5rem',
+        xl: '3rem',
+      },
+    },
+  },
+  responsive: {
+    fontSize: {
+      lg: '2rem',
+      xl: '2.625rem',
+      xxl: '4rem',
+    },
+    padding: {
+      sm: '1rem',
+      base: '1.5rem',
+      lg: '2.5rem',
+      xl: '5rem',
+    },
+    gap: {
+      base: '1rem',
+      lg: '2rem',
+    },
+  },
+  device: {
+    md: '768px',
+    lg: '1280px',
+  },
+};
