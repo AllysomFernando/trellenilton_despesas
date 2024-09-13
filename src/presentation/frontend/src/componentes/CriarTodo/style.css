@@ -1,0 +1,148 @@
+.ulTodo {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: #282c2c;
+    border-radius: 5px; 
+    border-color: #131414;
+    border-width: 3px;
+    margin-top: 2rem;
+}
+.buttonTodo {
+    background-color: #09766e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 30%;
+    &:hover {
+        background-color: #084e49;
+    }
+}
+
+.titleH3{
+    color: #a0c6c4;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.inputTodo {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+
+.inputTodo:focus::placeholder {
+    color: transparent;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.itemTodo{
+    padding-top: 3rem;
+    width: 50%;
+}
+.titleTodo{
+    font-size: 20px;
+    font-weight: semi-bold;
+    margin-bottom: 10px;
+    color: #a0c6c4;
+    width: 100%;
+    margin-bottom: 30px;
+
+}
+
+.titleTodo::after{
+    content: '';
+    height: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.listaTodo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.finalizarButton {
+    background-color: #09766e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 3px 3px;
+    margin-bottom: 3rem;
+    cursor: pointer;
+    width: 30%;
+}
+
+.finalizarButton:hover {
+    background-color: #084e49;
+}
+
+.divCheckBox {
+    display: flex;
+    align-items: center;
+    transition: background-color 0.5s ease;
+    width: 100%;
+}
+
+.checkBox {
+    display: none;
+}
+
+.checkBoxLabel {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #636a6a;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-left: 30px;
+    
+}
+
+.checkBox:checked + .checkBoxLabel + .titleTodo {
+    background-color: green;
+    animation: fillBackground 0.5s forwards;
+    border-radius: 5px;
+    width: 100%     ;
+}
+
+@keyframes fillBackground {
+    from {
+        background-color: transparent;
+    }
+    to {
+        background-color: green;
+    }
+}
+ 
+
+
+
+
