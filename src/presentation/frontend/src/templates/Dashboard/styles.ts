@@ -31,12 +31,19 @@ export const S = {
     flex-direction: column;
     gap: 20px;
   `,
+  ListDiv: styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  `,
   ListSection: styled.section`
-    margin: 20px 0;
-    width: 50%;
+    width: 100%;
     ul {
-      list-style-type: none;
-      padding: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
     }
   `,
   PieChartsGrid: styled.div`
@@ -58,9 +65,10 @@ export const S = {
       font-weight: bold;
     }
     button {
-      background-color: #ff6b6b;
+      background-color: ${theme.main.colors.secondary};
       border: none;
       color: white;
+      font-weight: ${theme.main.font.weight.semiBold};
       padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
