@@ -1,11 +1,8 @@
-import React from 'react';
-
-const Footer = () => {
+import { S } from './styles';
+export default function Footer() {
   return (
-    <footer>
-      <p>&copy; 2024 ToDoList. All rights reserved.</p>
-    </footer>
+    <S.Container>
+      <S.P>&copy; 2024 ToDoList. All rights reserved Trellenilton. </S.P>
+    </S.Container>
   );
-};
-
-export default Footer;
+}
