@@ -2,24 +2,23 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { S } from './styles';
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
+  PieChart,
+  Pie,
+  Cell,
   ResponsiveContainer,
+  Legend,
+  Tooltip,
 } from 'recharts';
 import { IDespesa } from '../../types/models/IDespesas';
 import { IReceita } from '../../types/models/IReceita';
 
 export default function DashboardTemplate() {
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
   const { despesas, receitas, setDespesasContext, setReceitasContext, user } =
     useContext(AuthContext);
   const [despesa, setDespesa] = useState<IDespesa>({
     name: '',
-    valor: 0,
+    valor: '' as unknown as number,
     id: '',
     descricao: '',
     data: '',
@@ -28,7 +27,7 @@ export default function DashboardTemplate() {
   });
   const [receita, setReceita] = useState<IReceita>({
     name: '',
-    valor: 0,
+    valor: '' as unknown as number,
     id: '',
     descricao: '',
     data: '',
@@ -65,18 +64,79 @@ export default function DashboardTemplate() {
       <h2>Dashboard</h2>
       <p>Seja bem-vindo ao seu dashboard, {user.name}!</p>
 
-      <S.ChartContainer>
+      <S.PieChartsContainer>
+        <h3>Tipos de Receitas</h3>
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+          <PieChart>
+            <Pie
+              data={receitas}
+              dataKey="valor"
+              nameKey="categoria"
+              cx="50%"
+              cy="50%"
+              outerRadius={80}
+              fill="#8884d8"
+            >
+              {receitas.map((_, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
             <Tooltip />
             <Legend />
-            <Bar dataKey="valor" fill="#82ca9d" />
-          </BarChart>
+          </PieChart>
         </ResponsiveContainer>
-      </S.ChartContainer>
+
+        <h3>Tipos de Despesas</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <PieChart>
+            <Pie
+              data={despesas}
+              dataKey="valor"
+              nameKey="categoria"
+              cx="50%"
+              cy="50%"
+              outerRadius={80}
+              fill="#82ca9d"
+            >
+              {despesas.map((_, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend />
+          </PieChart>
+        </ResponsiveContainer>
+
+        <h3>Receitas e Despesas</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <PieChart>
+            <Pie
+              data={data} 
+              dataKey="valor"
+              nameKey="tipo"
+              cx="50%"
+              cy="50%"
+              outerRadius={80}
+              fill="#82ca9d"
+            >
+              {data.map((_, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend />
+          </PieChart>
+        </ResponsiveContainer>
+      </S.PieChartsContainer>
 
       <S.ListSection>
         <h3>Despesas</h3>
