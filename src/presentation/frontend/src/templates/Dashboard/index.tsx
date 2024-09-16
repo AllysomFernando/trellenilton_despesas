@@ -173,37 +173,39 @@ export default function DashboardTemplate() {
           </div>
         </S.PieChartsGrid>
 
-        <S.ListSection>
-          <h3>Despesas</h3>
-          <ul>
-            {despesas.map((despesa) => (
-              <S.ListItem key={despesa.id}>
-                <span>{despesa.name}</span>
-                <button onClick={() => deleteDespesa(despesa.id)}>
-                  Excluir
-                </button>
-              </S.ListItem>
-            ))}
-          </ul>
-        </S.ListSection>
+        <S.ListDiv>
+          <S.ListSection>
+            <S.h3>Despesas</S.h3>
+            <ul>
+              {despesas.map((despesa) => (
+                <S.ListItem key={despesa.id}>
+                  <span>{despesa.name}</span>
+                  <button onClick={() => deleteDespesa(despesa.id)}>
+                    Excluir
+                  </button>
+                </S.ListItem>
+              ))}
+            </ul>
+          </S.ListSection>
 
-        <S.ListSection>
-          <h3>Receitas</h3>
-          <ul>
-            {receitas.map((receita) => (
-              <S.ListItem key={receita.id}>
-                <span>{receita.name}</span>
-                <button onClick={() => deleteReceita(receita.id)}>
-                  Excluir
-                </button>
-              </S.ListItem>
-            ))}
-          </ul>
-        </S.ListSection>
+          <S.ListSection>
+            <S.h3>Receitas</S.h3>
+            <ul>
+              {receitas.map((receita) => (
+                <S.ListItem key={receita.id}>
+                  <span>{receita.name}</span>
+                  <button onClick={() => deleteReceita(receita.id)}>
+                    Excluir
+                  </button>
+                </S.ListItem>
+              ))}
+            </ul>
+          </S.ListSection>
+        </S.ListDiv>
 
         <S.FormDiv>
           <S.FormSection>
-            <h3>Adicionar Receita</h3>
+            <S.h3>Adicionar Receita</S.h3>
             <form onSubmit={handleCadastroReceitas}>
               <input
                 type="text"
@@ -253,7 +255,7 @@ export default function DashboardTemplate() {
           </S.FormSection>
 
           <S.FormSection>
-            <h3>Adicionar Despesa</h3>
+            <S.h3>Adicionar Despesa</S.h3>
             <form onSubmit={handleCadastroDespesas}>
               <input
                 type="text"
