@@ -1,3 +1,4 @@
+import React from 'react';
 import { createContext, useEffect, useState } from 'react';
 import { IAuthContext, IAuthProviderProps } from '../types/Auth';
 import { IDespesa } from '../types/models/IDespesas';
@@ -11,19 +12,23 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
   const [despesas, setDespesas] = useState<IDespesa[]>([]);
   const [receitas, setReceitas] = useState<IReceita[]>([]);
 
-  async function setUserContext() {
+  async function getUserContext() {
     const user = localStorage.getItem('user');
     if (user) {
       setUser(JSON.parse(user));
     }
   }
+  async function setUserContext(user: User) {
+    localStorage.setItem('user', JSON.stringify(user));
+    setUser(user);
+  }
 
   useEffect(() => {
-    setUserContext();
+    getUserContext();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ despesas, receitas, user, setUser }}>
+    <AuthContext.Provider value={{ despesas, receitas, user, setUserContext }}>
       {children}
     </AuthContext.Provider>
   );
