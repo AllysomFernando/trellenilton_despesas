@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const S = {
   Container: styled.div`
     padding: 20px;
-    background-color: #f0f4f8;
   `,
 
   ChartContainer: styled.div`
