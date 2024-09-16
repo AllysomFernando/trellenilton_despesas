@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
+import { createGlobalStyle } from 'styled-components';
+import { theme } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
     html {
@@ -43,5 +43,10 @@ export const GlobalStyles = createGlobalStyle`
     }
     ul {
         list-style: none;
+    }
+    input{
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
     }
 `;
