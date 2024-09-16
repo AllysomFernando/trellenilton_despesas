@@ -14,6 +14,13 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
   const [receitas, setReceitas] = useState<IReceita[]>([]);
   const navigate = useNavigate();
 
+  async function getUserFromLocalStorage() {
+    const user = localStorage.getItem('user');
+    if (user) {
+      setUser(JSON.parse(user));
+    }
+  }
+
   async function setUserContext(user: User) {
     localStorage.setItem('user', JSON.stringify(user));
     setUser(user);
@@ -25,10 +32,30 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
     setDespesas(despesas);
   }
 
+  async function getDespesasFromLocalStorage() {
+    const despesas = localStorage.getItem('despesas');
+    if (despesas) {
+      setDespesas(JSON.parse(despesas));
+    }
+  }
+
   async function setReceitasContext(receitas: IReceita[]) {
     localStorage.setItem('receitas', JSON.stringify(receitas));
     setReceitas(receitas);
   }
+
+  async function getReceitasFromLocalStorage() {
+    const receitas = localStorage.getItem('receitas');
+    if (receitas) {
+      setReceitas(JSON.parse(receitas));
+    }
+  }
+
+  useEffect(() => {
+    getUserFromLocalStorage();
+    getDespesasFromLocalStorage();
+    getReceitasFromLocalStorage();
+  }, []);
 
   return (
     <AuthContext.Provider
