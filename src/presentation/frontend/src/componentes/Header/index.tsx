@@ -1,13 +1,15 @@
 import { Utility } from '../../styles/utility';
 import { S } from './styles';
-import Logo from '../../assets/images/logo.png';
+import Logo from '../../assets/images/logo.svg';
 import { Button } from '../Button';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Icon } from '../Icon/index';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 export default function NavBar() {
   const [mobile, setMobile] = useState(false);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const handlePressLogin = () => {
     navigate('/login');
@@ -62,13 +64,22 @@ export default function NavBar() {
             </li>
           </S.UlMaster>
         </Utility.DesktopOnly>
+
         <S.ButtonContainer>
           <Button onPress={handlePressLogin} title="Login" variant="Outline" />
-          <Button
-            onPress={handlePressCadastro}
-            title="Cadastrar"
-            variant="Main"
-          />
+          {user ? (
+            <Button
+              onPress={() => navigate('/dashboard')}
+              title="Dashboard"
+              variant="Outline"
+            />
+          ) : (
+            <Button
+              onPress={handlePressCadastro}
+              title="Cadastro"
+              variant="Main"
+            />
+          )}
         </S.ButtonContainer>
       </S.Nav>
 

@@ -40,13 +40,13 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
   }
 
   async function deleteDespesaFromLocal(id: string) {
-      const despesas = localStorage.getItem('despesas');
-      if (despesas) {
-        const despesasParsed: IDespesa[] = JSON.parse(despesas);
-        const newDespesas = despesasParsed.filter((despesa) => despesa.id !== id);
-        localStorage.setItem('despesas', JSON.stringify(newDespesas));
-        setDespesas(newDespesas);
-      }
+    const despesas = localStorage.getItem('despesas');
+    if (despesas) {
+      const despesasParsed: IDespesa[] = JSON.parse(despesas);
+      const newDespesas = despesasParsed.filter((despesa) => despesa.id !== id);
+      localStorage.setItem('despesas', JSON.stringify(newDespesas));
+      setDespesas(newDespesas);
+    }
   }
 
   async function setReceitasContext(receitas: IReceita[]) {
