@@ -6,19 +6,22 @@ import Sobre from '../pages/Sobre';
 import Dashboard from '../pages/Dashboard';
 import Login from '../pages/Login';
 import Footer from '../componentes/Footer';
+import { AuthProvider } from '../context/AuthContext';
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Header />
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="*" element={<h1>Página não encontrada</h1>} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="*" element={<h1>Página não encontrada</h1>} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </AuthProvider>
       </main>
       <Footer />
     </BrowserRouter>
