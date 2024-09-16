@@ -201,90 +201,106 @@ export default function DashboardTemplate() {
           </ul>
         </S.ListSection>
 
-        <S.FormSection>
-          <h3>Adicionar Receita</h3>
-          <form onSubmit={handleCadastroReceitas}>
-            <input
-              type="text"
-              placeholder="Nome"
-              onChange={(e) => setReceita({ ...receita, name: e.target.value })}
-            />
-            <input
-              type="number"
-              placeholder="Valor"
-              onChange={(e) =>
-                setReceita({ ...receita, valor: parseFloat(e.target.value) })
-              }
-            />
-            <select
-              onChange={(e) =>
-                setReceita({ ...receita, categoria: { name: e.target.value } })
-              }
-            >
-              <option value="">Selecione uma categoria</option>
-              <option value="Salário">Salário</option>
-              <option value="Freelance">Freelance</option>
-              <option value="Investimentos">Investimentos</option>
-              <option value="Outros">Outros</option>
-            </select>
-            <input
-              type="text"
-              placeholder="Descrição"
-              onChange={(e) =>
-                setReceita({ ...receita, descricao: e.target.value })
-              }
-            />
-            <input
-              type="text"
-              placeholder="Data"
-              onChange={(e) => setReceita({ ...receita, data: e.target.value })}
-            />
+        <S.FormDiv>
+          <S.FormSection>
+            <h3>Adicionar Receita</h3>
+            <form onSubmit={handleCadastroReceitas}>
+              <input
+                type="text"
+                placeholder="Nome"
+                onChange={(e) =>
+                  setReceita({ ...receita, name: e.target.value })
+                }
+              />
+              <input
+                type="number"
+                placeholder="Valor"
+                onChange={(e) =>
+                  setReceita({ ...receita, valor: parseFloat(e.target.value) })
+                }
+              />
+              <select
+                onChange={(e) =>
+                  setReceita({
+                    ...receita,
+                    categoria: { name: e.target.value },
+                  })
+                }
+              >
+                <option value="">Selecione uma categoria</option>
+                <option value="Salário">Salário</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Investimentos">Investimentos</option>
+                <option value="Outros">Outros</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Descrição"
+                onChange={(e) =>
+                  setReceita({ ...receita, descricao: e.target.value })
+                }
+              />
+              <input
+                type="text"
+                placeholder="Data"
+                onChange={(e) =>
+                  setReceita({ ...receita, data: e.target.value })
+                }
+              />
 
-            <button type="submit">Adicionar Receita</button>
-          </form>
-        </S.FormSection>
+              <button type="submit">Adicionar Receita</button>
+            </form>
+          </S.FormSection>
 
-        <S.FormSection>
-          <h3>Adicionar Despesa</h3>
-          <form onSubmit={handleCadastroDespesas}>
-            <input
-              type="text"
-              placeholder="Nome"
-              onChange={(e) => setDespesa({ ...despesa, name: e.target.value })}
-            />
-            <input
-              type="number"
-              placeholder="Valor"
-              onChange={(e) =>
-                setDespesa({ ...despesa, valor: parseFloat(e.target.value) })
-              }
-            />
-            <select
-              onChange={(e) =>
-                setDespesa({ ...despesa, categoria: { name: e.target.value } })
-              }
-            >
-              <option value="">Selecione uma categoria</option>
-              <option value="Alimentação">Alimentação</option>
-              <option value="Transporte">Transporte</option>
-              <option value="Moradia">Moradia</option>
-              <option value="Outros">Outros</option>
-            </select>
-            <input
-              type="text"
-              placeholder="Descrição"
-              onChange={(e) =>
-                setDespesa({ ...despesa, descricao: e.target.value })
-              }
-            />
-            <input
-              type="text"
-              placeholder="Data"
-              onChange={(e) => setDespesa({ ...despesa, data: e.target.value })}
-            />
-            <button type="submit">Adicionar Despesa</button>
-          </form>
-        </S.FormSection>
+          <S.FormSection>
+            <h3>Adicionar Despesa</h3>
+            <form onSubmit={handleCadastroDespesas}>
+              <input
+                type="text"
+                placeholder="Nome"
+                onChange={(e) =>
+                  setDespesa({ ...despesa, name: e.target.value })
+                }
+              />
+              <input
+                type="number"
+                placeholder="Valor"
+                onChange={(e) =>
+                  setDespesa({ ...despesa, valor: parseFloat(e.target.value) })
+                }
+              />
+              <select
+                onChange={(e) =>
+                  setDespesa({
+                    ...despesa,
+                    categoria: { name: e.target.value },
+                  })
+                }
+              >
+                <option value="">Selecione uma categoria</option>
+                <option value="Alimentação">Alimentação</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Moradia">Moradia</option>
+                <option value="Outros">Outros</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Descrição"
+                onChange={(e) =>
+                  setDespesa({ ...despesa, descricao: e.target.value })
+                }
+              />
+              <input
+                type="text"
+                placeholder="Data"
+                onChange={(e) =>
+                  setDespesa({ ...despesa, data: e.target.value })
+                }
+              />
+              <button type="submit">Adicionar Despesa</button>
+            </form>
+          </S.FormSection>
+        </S.FormDiv>
       </S.Main>
     </S.Container>
   );
