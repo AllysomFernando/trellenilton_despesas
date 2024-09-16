@@ -39,6 +39,15 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
     }
   }
 
+  async function deleteDespesaFromLocal(id: string) {
+    const despesas = localStorage.getItem('despesas');
+    if (despesas) {
+      const despesasParsed: IDespesa[] = JSON.parse(despesas);
+      const newDespesas = despesasParsed.filter((despesa) => despesa.id !== id);
+      setDespesasContext(newDespesas);
+    }
+  }
+
   async function setReceitasContext(receitas: IReceita[]) {
     localStorage.setItem('receitas', JSON.stringify(receitas));
     setReceitas(receitas);
@@ -48,6 +57,15 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
     const receitas = localStorage.getItem('receitas');
     if (receitas) {
       setReceitas(JSON.parse(receitas));
+    }
+  }
+
+  async function deleteReceitaFromLocal(id: string) {
+    const receitas = localStorage.getItem('receitas');
+    if (receitas) {
+      const receitasParsed: IReceita[] = JSON.parse(receitas);
+      const newReceitas = receitasParsed.filter((receita) => receita.id !== id);
+      setReceitasContext(newReceitas);
     }
   }
 
@@ -66,6 +84,8 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
         setUserContext,
         setDespesasContext,
         setReceitasContext,
+        deleteDespesaFromLocal,
+        deleteReceitaFromLocal,
       }}
     >
       {children}
