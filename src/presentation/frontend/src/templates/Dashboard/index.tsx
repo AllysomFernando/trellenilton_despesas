@@ -221,7 +221,6 @@ export default function DashboardTemplate() {
           <input
             type="text"
             placeholder="Data"
-            value={receita.data}
             onChange={(e) => setReceita({ ...receita, data: e.target.value })}
           />
 
