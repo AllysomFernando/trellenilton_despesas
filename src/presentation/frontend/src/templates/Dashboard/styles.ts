@@ -1,8 +1,20 @@
 import styled from 'styled-components';
+import { theme } from '../../styles/theme';
 
 export const S = {
   Container: styled.div`
-    padding: 20px;
+    max-width: 1920px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  `,
+  Main: styled.main`
+    width: 100%;
+    padding: 0 ${theme.main.spacing.x.xl};
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
   `,
 
   ChartContainer: styled.div`
