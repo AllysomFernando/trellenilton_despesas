@@ -91,195 +91,201 @@ export default function DashboardTemplate() {
   };
   return (
     <S.Container>
-      <h2>Olá, {user.name}!</h2>
+      <S.Main>
+        <h2>Olá, {user.name}!</h2>
 
-      <S.PieChartsGrid>
-        <div>
-          <h3>Receitas por Categoria</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={receitas}
-                dataKey="valor"
-                nameKey="categoria.name"
-                cx="50%"
-                cy="50%"
-                outerRadius={100}
-                fill="#82ca9d"
-              >
-                {receitas.map((_, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
+        <S.PieChartsGrid>
+          <div>
+            <h3>Receitas por Categoria</h3>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={receitas}
+                  dataKey="valor"
+                  nameKey="categoria.name"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={100}
+                  fill="#82ca9d"
+                >
+                  {receitas.map((_, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
 
-        <div>
-          <h3>Despesas por Categoria</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={despesas}
-                dataKey="valor"
-                nameKey="categoria.name"
-                cx="50%"
-                cy="50%"
-                outerRadius={100}
-                fill="#8884d8"
-              >
-                {despesas.map((_, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
+          <div>
+            <h3>Despesas por Categoria</h3>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={despesas}
+                  dataKey="valor"
+                  nameKey="categoria.name"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={100}
+                  fill="#8884d8"
+                >
+                  {despesas.map((_, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
 
-        <div>
-          <h3>Comparativo de Receitas e Despesas</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={comparativoData}
-                dataKey="valor"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                outerRadius={100}
-                fill="#FF8042"
-              >
-                {comparativoData.map((_, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-      </S.PieChartsGrid>
+          <div>
+            <h3>Comparativo de Receitas e Despesas</h3>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={comparativoData}
+                  dataKey="valor"
+                  nameKey="name"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={100}
+                  fill="#FF8042"
+                >
+                  {comparativoData.map((_, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </S.PieChartsGrid>
 
-      <S.ListSection>
-        <h3>Despesas</h3>
-        <ul>
-          {despesas.map((despesa) => (
-            <S.ListItem key={despesa.id}>
-              <span>{despesa.name}</span>
-              <button onClick={() => deleteDespesa(despesa.id)}>Excluir</button>
-            </S.ListItem>
-          ))}
-        </ul>
-      </S.ListSection>
+        <S.ListSection>
+          <h3>Despesas</h3>
+          <ul>
+            {despesas.map((despesa) => (
+              <S.ListItem key={despesa.id}>
+                <span>{despesa.name}</span>
+                <button onClick={() => deleteDespesa(despesa.id)}>
+                  Excluir
+                </button>
+              </S.ListItem>
+            ))}
+          </ul>
+        </S.ListSection>
 
-      <S.ListSection>
-        <h3>Receitas</h3>
-        <ul>
-          {receitas.map((receita) => (
-            <S.ListItem key={receita.id}>
-              <span>{receita.name}</span>
-              <button onClick={() => deleteReceita(receita.id)}>Excluir</button>
-            </S.ListItem>
-          ))}
-        </ul>
-      </S.ListSection>
+        <S.ListSection>
+          <h3>Receitas</h3>
+          <ul>
+            {receitas.map((receita) => (
+              <S.ListItem key={receita.id}>
+                <span>{receita.name}</span>
+                <button onClick={() => deleteReceita(receita.id)}>
+                  Excluir
+                </button>
+              </S.ListItem>
+            ))}
+          </ul>
+        </S.ListSection>
 
-      <S.FormSection>
-        <h3>Adicionar Receita</h3>
-        <form onSubmit={handleCadastroReceitas}>
-          <input
-            type="text"
-            placeholder="Nome"
-            onChange={(e) => setReceita({ ...receita, name: e.target.value })}
-          />
-          <input
-            type="number"
-            placeholder="Valor"
-            onChange={(e) =>
-              setReceita({ ...receita, valor: parseFloat(e.target.value) })
-            }
-          />
-          <select
-            onChange={(e) =>
-              setReceita({ ...receita, categoria: { name: e.target.value } })
-            }
-          >
-            <option value="">Selecione uma categoria</option>
-            <option value="Salário">Salário</option>
-            <option value="Freelance">Freelance</option>
-            <option value="Investimentos">Investimentos</option>
-            <option value="Outros">Outros</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Descrição"
-            onChange={(e) =>
-              setReceita({ ...receita, descricao: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Data"
-            onChange={(e) => setReceita({ ...receita, data: e.target.value })}
-          />
+        <S.FormSection>
+          <h3>Adicionar Receita</h3>
+          <form onSubmit={handleCadastroReceitas}>
+            <input
+              type="text"
+              placeholder="Nome"
+              onChange={(e) => setReceita({ ...receita, name: e.target.value })}
+            />
+            <input
+              type="number"
+              placeholder="Valor"
+              onChange={(e) =>
+                setReceita({ ...receita, valor: parseFloat(e.target.value) })
+              }
+            />
+            <select
+              onChange={(e) =>
+                setReceita({ ...receita, categoria: { name: e.target.value } })
+              }
+            >
+              <option value="">Selecione uma categoria</option>
+              <option value="Salário">Salário</option>
+              <option value="Freelance">Freelance</option>
+              <option value="Investimentos">Investimentos</option>
+              <option value="Outros">Outros</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Descrição"
+              onChange={(e) =>
+                setReceita({ ...receita, descricao: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              placeholder="Data"
+              onChange={(e) => setReceita({ ...receita, data: e.target.value })}
+            />
 
-          <button type="submit">Adicionar Receita</button>
-        </form>
-      </S.FormSection>
+            <button type="submit">Adicionar Receita</button>
+          </form>
+        </S.FormSection>
 
-      <S.FormSection>
-        <h3>Adicionar Despesa</h3>
-        <form onSubmit={handleCadastroDespesas}>
-          <input
-            type="text"
-            placeholder="Nome"
-            onChange={(e) => setDespesa({ ...despesa, name: e.target.value })}
-          />
-          <input
-            type="number"
-            placeholder="Valor"
-            onChange={(e) =>
-              setDespesa({ ...despesa, valor: parseFloat(e.target.value) })
-            }
-          />
-          <select
-            onChange={(e) =>
-              setDespesa({ ...despesa, categoria: { name: e.target.value } })
-            }
-          >
-            <option value="">Selecione uma categoria</option>
-            <option value="Alimentação">Alimentação</option>
-            <option value="Transporte">Transporte</option>
-            <option value="Moradia">Moradia</option>
-            <option value="Outros">Outros</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Descrição"
-            onChange={(e) =>
-              setDespesa({ ...despesa, descricao: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Data"
-            onChange={(e) => setDespesa({ ...despesa, data: e.target.value })}
-          />
-          <button type="submit">Adicionar Despesa</button>
-        </form>
-      </S.FormSection>
+        <S.FormSection>
+          <h3>Adicionar Despesa</h3>
+          <form onSubmit={handleCadastroDespesas}>
+            <input
+              type="text"
+              placeholder="Nome"
+              onChange={(e) => setDespesa({ ...despesa, name: e.target.value })}
+            />
+            <input
+              type="number"
+              placeholder="Valor"
+              onChange={(e) =>
+                setDespesa({ ...despesa, valor: parseFloat(e.target.value) })
+              }
+            />
+            <select
+              onChange={(e) =>
+                setDespesa({ ...despesa, categoria: { name: e.target.value } })
+              }
+            >
+              <option value="">Selecione uma categoria</option>
+              <option value="Alimentação">Alimentação</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Moradia">Moradia</option>
+              <option value="Outros">Outros</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Descrição"
+              onChange={(e) =>
+                setDespesa({ ...despesa, descricao: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              placeholder="Data"
+              onChange={(e) => setDespesa({ ...despesa, data: e.target.value })}
+            />
+            <button type="submit">Adicionar Despesa</button>
+          </form>
+        </S.FormSection>
+      </S.Main>
     </S.Container>
   );
 }
