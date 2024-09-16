@@ -29,8 +29,7 @@ export default function DashboardTemplate() {
     id: '',
     descricao: '',
     data: '',
-    categoria: '',
-    tipo: '',
+    categoria: { name: '' },
   });
   const [receita, setReceita] = useState<IReceita>({
     name: '',
@@ -38,8 +37,7 @@ export default function DashboardTemplate() {
     id: '',
     descricao: '',
     data: '',
-    categoria: '',
-    tipo: '',
+    categoria: { name: '' },
   });
 
   const data = despesas
@@ -202,13 +200,17 @@ export default function DashboardTemplate() {
               setReceita({ ...receita, valor: parseFloat(e.target.value) })
             }
           />
-          <input
-            type="text"
-            placeholder="Categoria"
+          <select
             onChange={(e) =>
-              setReceita({ ...receita, categoria: e.target.value })
+              setReceita({ ...receita, categoria: { name: e.target.value } })
             }
-          />
+          >
+            <option value="">Selecione uma categoria</option>
+            <option value="Salário">Salário</option>
+            <option value="Freelance">Freelance</option>
+            <option value="Investimentos">Investimentos</option>
+            <option value="Outros">Outros</option>
+          </select>
           <input
             type="text"
             placeholder="Descrição"
@@ -221,12 +223,6 @@ export default function DashboardTemplate() {
             placeholder="Data"
             value={receita.data}
             onChange={(e) => setReceita({ ...receita, data: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Tipo"
-            value={receita.tipo}
-            onChange={(e) => setReceita({ ...receita, tipo: e.target.value })}
           />
 
           <button type="submit">Adicionar Receita</button>
@@ -248,13 +244,17 @@ export default function DashboardTemplate() {
               setDespesa({ ...despesa, valor: parseFloat(e.target.value) })
             }
           />
-          <input
-            type="text"
-            placeholder="Categoria"
+          <select
             onChange={(e) =>
-              setDespesa({ ...despesa, categoria: e.target.value })
+              setDespesa({ ...despesa, categoria: { name: e.target.value } })
             }
-          />
+          >
+            <option value="">Selecione uma categoria</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Moradia">Moradia</option>
+            <option value="Outros">Outros</option>
+          </select>
           <input
             type="text"
             placeholder="Descrição"
@@ -266,11 +266,6 @@ export default function DashboardTemplate() {
             type="text"
             placeholder="Data"
             onChange={(e) => setDespesa({ ...despesa, data: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Tipo"
-            onChange={(e) => setDespesa({ ...despesa, tipo: e.target.value })}
           />
           <button type="submit">Adicionar Despesa</button>
         </form>
