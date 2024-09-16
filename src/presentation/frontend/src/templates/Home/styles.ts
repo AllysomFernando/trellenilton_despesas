@@ -6,6 +6,7 @@ export const S = {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        width: 600px;
         height: '100vh',
         gap: '1rem',
     `,
@@ -19,10 +20,12 @@ export const S = {
         color: #666;
         font-size: 1.2em;
         line-height: 1.5;
-        max-width: 600px;
-        text-align: center;
         margin-bottom: 20px;
-        align-self: center;
         text-align: center;
+        align-self: center;
+        align-items: center;
+        margin: 0 auto;
+        justify-content: center;
+        width: 50%;
     `
 };
