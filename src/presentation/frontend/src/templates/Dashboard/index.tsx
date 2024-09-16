@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
 export default function DashboardTemplate() {
-  const { despesas, receitas, user } = useContext(AuthContext);
+  const { despesas, receitas, user, } = useContext(AuthContext);
   return (
     <div>
       <h2>Dashboard</h2>
