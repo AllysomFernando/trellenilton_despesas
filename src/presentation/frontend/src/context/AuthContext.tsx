@@ -26,12 +26,31 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
     navigate('/dashboard');
   }
 
+  async function setDespesasContext(despesas: IDespesa[]) {
+    localStorage.setItem('despesas', JSON.stringify(despesas));
+    setDespesas(despesas);
+  }
+
+  async function setReceitasContext(receitas: IReceita[]) {
+    localStorage.setItem('receitas', JSON.stringify(receitas));
+    setReceitas(receitas);
+  }
+
   useEffect(() => {
     getUserContext();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ despesas, receitas, user, setUserContext }}>
+    <AuthContext.Provider
+      value={{
+        despesas,
+        receitas,
+        user,
+        setUserContext,
+        setDespesasContext,
+        setReceitasContext,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
