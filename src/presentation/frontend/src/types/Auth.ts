@@ -12,4 +12,6 @@ export interface IAuthContext {
   receitas: IReceita[];
   user: User;
   setUserContext: (user: User) => void;
+  setReceitasContext: (receitas: IReceita[]) => void;
+  setDespesasContext: (despesas: IDespesa[]) => void;
 }
