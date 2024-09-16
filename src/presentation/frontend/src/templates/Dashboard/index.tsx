@@ -67,11 +67,19 @@ export default function DashboardTemplate() {
 
   const handleCadastroDespesas = async (e: React.FormEvent) => {
     e.preventDefault();
-    setDespesasContext([...despesas, despesa]);
+    const novaDespesa: IDespesa = {
+      ...despesa,
+      id: Date.now().toString(),
+    };
+    await setDespesasContext([...despesas, novaDespesa]);
   };
 
   const handleCadastroReceitas = async (e: React.FormEvent) => {
     e.preventDefault();
+    const novaReceita: IReceita = {
+      ...receita,
+      id: Date.now().toString(),
+    };
     setReceitasContext([...receitas, receita]);
   };
 
@@ -86,7 +94,6 @@ export default function DashboardTemplate() {
       <h2>Dashboard</h2>
       <p>Bem-vindo, {user.name}!</p>
       <S.PieChartsGrid>
-        {/* Gráfico de Receitas */}
         <div>
           <h3>Receitas por Categoria</h3>
           <ResponsiveContainer width="100%" height={300}>
