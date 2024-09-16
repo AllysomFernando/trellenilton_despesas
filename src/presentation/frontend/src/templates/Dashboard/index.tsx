@@ -11,16 +11,38 @@ export default function DashboardTemplate() {
       <h3>Despesas</h3>
       <ul>
         {despesas.map((despesa) => (
-          <li key={despesa.id}>{despesa.name}</li>
+          <div>
+            <li key={despesa.id}>{despesa.name}</li>
+            <button>Excluir</button>
+          </div>
         ))}
       </ul>
 
       <h3>Receitas</h3>
       <ul>
         {receitas.map((receita) => (
-          <li key={receita.id}>{receita.name}</li>
+          <div>
+            <li key={receita.id}>{receita.name}</li>
+            <button>Excluir</button>
+          </div>
         ))}
       </ul>
+      <div>
+        <h3>Adicionar Receita</h3>
+        <form>
+          <input type="text" placeholder="Nome" />
+          <input type="number" placeholder="Valor" />
+          <button type="submit">Adicionar Receita</button>
+        </form>
+      </div>
+      <div>
+        <h3>Adicionar Despesa</h3>
+        <form>
+          <input type="text" placeholder="Nome" />
+          <input type="number" placeholder="Valor" />
+          <button type="submit">Adicionar Despesa</button>
+        </form>
+      </div>
     </div>
   );
 }
