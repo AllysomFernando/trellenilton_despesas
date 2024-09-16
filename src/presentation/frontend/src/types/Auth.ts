@@ -14,4 +14,6 @@ export interface IAuthContext {
   setUserContext: (user: User) => void;
   setReceitasContext: (receitas: IReceita[]) => void;
   setDespesasContext: (despesas: IDespesa[]) => void;
+  deleteDespesaFromLocal: (id: string) => void;
+  deleteReceitaFromLocal: (id: string) => void;
 }
