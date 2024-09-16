@@ -193,13 +193,11 @@ export default function DashboardTemplate() {
           <input
             type="text"
             placeholder="Nome"
-            value={receita.name}
             onChange={(e) => setReceita({ ...receita, name: e.target.value })}
           />
           <input
             type="number"
             placeholder="Valor"
-            value={receita.valor}
             onChange={(e) =>
               setReceita({ ...receita, valor: parseFloat(e.target.value) })
             }
@@ -207,7 +205,6 @@ export default function DashboardTemplate() {
           <input
             type="text"
             placeholder="Categoria"
-            value={receita.categoria}
             onChange={(e) =>
               setReceita({ ...receita, categoria: e.target.value })
             }
@@ -215,7 +212,6 @@ export default function DashboardTemplate() {
           <input
             type="text"
             placeholder="Descrição"
-            value={receita.descricao}
             onChange={(e) =>
               setReceita({ ...receita, descricao: e.target.value })
             }
@@ -243,13 +239,11 @@ export default function DashboardTemplate() {
           <input
             type="text"
             placeholder="Nome"
-            value={despesa.name}
             onChange={(e) => setDespesa({ ...despesa, name: e.target.value })}
           />
           <input
             type="number"
             placeholder="Valor"
-            value={despesa.valor}
             onChange={(e) =>
               setDespesa({ ...despesa, valor: parseFloat(e.target.value) })
             }
@@ -257,7 +251,6 @@ export default function DashboardTemplate() {
           <input
             type="text"
             placeholder="Categoria"
-            value={despesa.categoria}
             onChange={(e) =>
               setDespesa({ ...despesa, categoria: e.target.value })
             }
@@ -265,7 +258,6 @@ export default function DashboardTemplate() {
           <input
             type="text"
             placeholder="Descrição"
-            value={despesa.descricao}
             onChange={(e) =>
               setDespesa({ ...despesa, descricao: e.target.value })
             }
@@ -273,13 +265,11 @@ export default function DashboardTemplate() {
           <input
             type="text"
             placeholder="Data"
-            value={despesa.data}
             onChange={(e) => setDespesa({ ...despesa, data: e.target.value })}
           />
           <input
             type="text"
             placeholder="Tipo"
-            value={despesa.tipo}
             onChange={(e) => setDespesa({ ...despesa, tipo: e.target.value })}
           />
           <button type="submit">Adicionar Despesa</button>
