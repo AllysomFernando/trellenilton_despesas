@@ -33,6 +33,7 @@ export const S = {
   `,
   ListSection: styled.section`
     margin: 20px 0;
+    width: 50%;
     ul {
       list-style-type: none;
       padding: 0;
@@ -45,6 +46,7 @@ export const S = {
     margin: 20px 0;
   `,
   ListItem: styled.li`
+    width: 50%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -64,8 +66,16 @@ export const S = {
       cursor: pointer;
     }
   `,
-
+  FormDiv: styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+  `,
   FormSection: styled.section`
+    width: 50%;
+
     margin: 20px 0;
     form {
       display: flex;
