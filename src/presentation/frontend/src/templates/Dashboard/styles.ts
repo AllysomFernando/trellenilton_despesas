@@ -46,6 +46,11 @@ export const S = {
       justify-content: center;
     }
   `,
+  SelectInput: styled.select`
+    padding: 10px ;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  `,
   PieChartsGrid: styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
