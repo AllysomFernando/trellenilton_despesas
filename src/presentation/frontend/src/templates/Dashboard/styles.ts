@@ -5,11 +5,15 @@ export const S = {
     padding: 20px;
     background-color: #f0f4f8;
   `,
-  
+
   ChartContainer: styled.div`
     margin: 20px 0;
   `,
-
+  PieChartsContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  `,
   ListSection: styled.section`
     margin: 20px 0;
     ul {
