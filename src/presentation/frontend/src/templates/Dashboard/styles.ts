@@ -16,6 +16,12 @@ export const S = {
     justify-content: center;
     margin: 0 auto;
   `,
+  h3: styled.h3`
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  `,
 
   ChartContainer: styled.div`
     margin: 20px 0;
@@ -34,8 +40,8 @@ export const S = {
   `,
   PieChartsGrid: styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 30px;
     margin: 20px 0;
   `,
   ListItem: styled.li`
