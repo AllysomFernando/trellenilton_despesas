@@ -4,6 +4,7 @@ import { IAuthContext, IAuthProviderProps } from '../types/Auth';
 import { IDespesa } from '../types/models/IDespesas';
 import { IReceita } from '../types/models/IReceita';
 import { User } from '../types/models/User';
+import { Navigate } from 'react-router-dom';
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
@@ -21,6 +22,7 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
   async function setUserContext(user: User) {
     localStorage.setItem('user', JSON.stringify(user));
     setUser(user);
+    <Navigate to={'/dashboard'} />;
   }
 
   useEffect(() => {
