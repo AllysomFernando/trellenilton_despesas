@@ -91,8 +91,8 @@ export default function DashboardTemplate() {
   };
   return (
     <S.Container>
-      <h2>Dashboard</h2>
-      <p>Bem-vindo, {user.name}!</p>
+      <h2>Olá, {user.name}!</h2>
+
       <S.PieChartsGrid>
         <div>
           <h3>Receitas por Categoria</h3>
