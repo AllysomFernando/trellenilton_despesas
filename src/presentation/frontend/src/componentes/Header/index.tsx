@@ -61,6 +61,9 @@ export default function NavBar() {
             <li>
               <a href="/">Home</a>
             </li>
+            <li>
+              <a href="/sobre">Sobre</a>
+            </li>
           </S.UlMaster>
         </Utility.DesktopOnly>
 
