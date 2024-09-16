@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 import { IDespesa } from '../../types/models/IDespesas';
 import { IReceita } from '../../types/models/IReceita';
+import { Button } from '../../componentes/Button';
 
 export default function DashboardTemplate() {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -221,7 +222,7 @@ export default function DashboardTemplate() {
                   setReceita({ ...receita, valor: parseFloat(e.target.value) })
                 }
               />
-              <select
+              <S.SelectInput
                 onChange={(e) =>
                   setReceita({
                     ...receita,
@@ -234,7 +235,7 @@ export default function DashboardTemplate() {
                 <option value="Freelance">Freelance</option>
                 <option value="Investimentos">Investimentos</option>
                 <option value="Outros">Outros</option>
-              </select>
+              </S.SelectInput>
               <input
                 type="text"
                 placeholder="Descrição"
@@ -249,8 +250,11 @@ export default function DashboardTemplate() {
                   setReceita({ ...receita, data: e.target.value })
                 }
               />
-
-              <button type="submit">Adicionar Receita</button>
+              <Button
+                variant="Main"
+                title="Adicionar Receita"
+                onPress={() => handleCadastroReceitas}
+              />
             </form>
           </S.FormSection>
 
@@ -271,7 +275,7 @@ export default function DashboardTemplate() {
                   setDespesa({ ...despesa, valor: parseFloat(e.target.value) })
                 }
               />
-              <select
+              <S.SelectInput
                 onChange={(e) =>
                   setDespesa({
                     ...despesa,
@@ -284,7 +288,7 @@ export default function DashboardTemplate() {
                 <option value="Transporte">Transporte</option>
                 <option value="Moradia">Moradia</option>
                 <option value="Outros">Outros</option>
-              </select>
+              </S.SelectInput>
               <input
                 type="text"
                 placeholder="Descrição"
@@ -299,7 +303,11 @@ export default function DashboardTemplate() {
                   setDespesa({ ...despesa, data: e.target.value })
                 }
               />
-              <button type="submit">Adicionar Despesa</button>
+              <Button
+                variant="Main"
+                title="Adicionar Despesa"
+                onPress={() => handleCadastroDespesas}
+              />
             </form>
           </S.FormSection>
         </S.FormDiv>
