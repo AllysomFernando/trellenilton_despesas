@@ -1,3 +1,4 @@
+import React from 'react';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -5,14 +6,12 @@ import { useNavigate } from 'react-router-dom';
 export default function LoginTemplate() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const user = { email, name,  };
+    const user = { email, password };
     localStorage.setItem('user', JSON.stringify(user));
-    setUser(user);
     navigate('/dashboard');
   };
 
