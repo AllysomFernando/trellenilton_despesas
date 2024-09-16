@@ -96,7 +96,7 @@ export default function DashboardTemplate() {
 
         <S.PieChartsGrid>
           <div>
-            <h3>Receitas por Categoria</h3>
+            <S.h3>Receitas por Categoria</S.h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -122,7 +122,7 @@ export default function DashboardTemplate() {
           </div>
 
           <div>
-            <h3>Despesas por Categoria</h3>
+            <S.h3>Despesas por Categoria</S.h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -148,7 +148,7 @@ export default function DashboardTemplate() {
           </div>
 
           <div>
-            <h3>Comparativo de Receitas e Despesas</h3>
+            <S.h3>Comparativo de Receitas e Despesas</S.h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
