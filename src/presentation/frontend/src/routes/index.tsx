@@ -8,21 +8,27 @@ import Login from '../pages/Login';
 import Footer from '../componentes/Footer';
 import { AuthProvider } from '../context/AuthContext';
 import Cadastro from '../pages/Cadastro';
+import { GlobalStyles } from '../styles/global';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../styles/theme';
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Header />
       <main>
+        <GlobalStyles />
         <AuthProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sobre" element={<Sobre />} />
-            <Route path="*" element={<h1>Página não encontrada</h1>} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadastro" element={<Cadastro />} />
-          </Routes>
+          <ThemeProvider theme={theme}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/sobre" element={<Sobre />} />
+              <Route path="*" element={<h1>Página não encontrada</h1>} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastro" element={<Cadastro />} />
+            </Routes>
+          </ThemeProvider>
         </AuthProvider>
       </main>
       <Footer />
