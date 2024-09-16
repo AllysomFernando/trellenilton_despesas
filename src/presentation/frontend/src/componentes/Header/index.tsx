@@ -5,13 +5,16 @@ import { Button } from '../Button';
 import { useEffect, useState } from 'react';
 import { Icon } from '../Icon/index';
 import { motion } from 'framer-motion';
-
+import { useNavigate } from 'react-router-dom';
 export default function NavBar() {
   const [mobile, setMobile] = useState(false);
-  const handlePress = () => {
-    console.log('Button pressed');
+  const navigate = useNavigate();
+  const handlePressLogin = () => {
+    navigate('/login');
   };
-
+  const handlePressCadastro = () => {
+    navigate('/cadastro');
+  };
   const menuVariants = {
     open: {
       opacity: 1,
@@ -53,27 +56,19 @@ export default function NavBar() {
       <S.Nav>
         <Utility.DesktopOnly>
           <S.UlMaster>
-            <Utility.Image src={Logo} alt="Logo Trellenilton" width={200} />
+            <Utility.Image src={Logo} alt="Logo Trellenilton" width={300} />
             <li>
               <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/">Soluções</a>
-            </li>
-            <li>
-              <a href="/">Depoimentos</a>
-            </li>
-            <li>
-              <a href="/">Preços</a>
-            </li>
-            <li>
-              <a href="/">Contato</a>
             </li>
           </S.UlMaster>
         </Utility.DesktopOnly>
         <S.ButtonContainer>
-          <Button onPress={handlePress} title="Login" variant="Outline" />
-          <Button onPress={handlePress} title="Cadastrar" variant="Main" />
+          <Button onPress={handlePressLogin} title="Login" variant="Outline" />
+          <Button
+            onPress={handlePressCadastro}
+            title="Cadastrar"
+            variant="Main"
+          />
         </S.ButtonContainer>
       </S.Nav>
 
