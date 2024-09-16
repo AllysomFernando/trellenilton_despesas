@@ -14,8 +14,15 @@ import { IReceita } from '../../types/models/IReceita';
 
 export default function DashboardTemplate() {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-  const { despesas, receitas, setDespesasContext, setReceitasContext, user } =
-    useContext(AuthContext);
+  const {
+    despesas,
+    receitas,
+    setDespesasContext,
+    setReceitasContext,
+    user,
+    deleteDespesaFromLocal,
+    deleteReceitaFromLocal,
+  } = useContext(AuthContext);
   const [despesa, setDespesa] = useState<IDespesa>({
     name: '',
     valor: '' as unknown as number,
@@ -59,6 +66,12 @@ export default function DashboardTemplate() {
     setReceitasContext([...receitas, receita]);
   };
 
+  const deleteDespesa = (id: string) => {
+    deleteDespesaFromLocal(id);
+  };
+  const deleteReceita = (id: string) => {
+    deleteReceitaFromLocal(id);
+  };
   return (
     <S.Container>
       <h2>Dashboard</h2>
@@ -117,7 +130,7 @@ export default function DashboardTemplate() {
         <ResponsiveContainer width="100%" height={300}>
           <PieChart>
             <Pie
-              data={data} 
+              data={data}
               dataKey="valor"
               nameKey="tipo"
               cx="50%"
@@ -144,7 +157,13 @@ export default function DashboardTemplate() {
           {despesas.map((despesa) => (
             <S.ListItem key={despesa.id}>
               <span>{despesa.name}</span>
-              <button>Excluir</button>
+              <button
+                onClick={() => {
+                  deleteDespesa(despesa.id);
+                }}
+              >
+                Excluir
+              </button>
             </S.ListItem>
           ))}
         </ul>
@@ -156,7 +175,13 @@ export default function DashboardTemplate() {
           {receitas.map((receita) => (
             <S.ListItem key={receita.id}>
               <span>{receita.name}</span>
-              <button>Excluir</button>
+              <button
+                onClick={() => {
+                  deleteReceita(receita.id);
+                }}
+              >
+                Excluir
+              </button>
             </S.ListItem>
           ))}
         </ul>
@@ -232,30 +257,30 @@ export default function DashboardTemplate() {
           <input
             type="text"
             placeholder="Categoria"
-            value={receita.categoria}
+            value={despesa.categoria}
             onChange={(e) =>
-              setReceita({ ...receita, categoria: e.target.value })
+              setDespesa({ ...despesa, categoria: e.target.value })
             }
           />
           <input
             type="text"
             placeholder="Descrição"
-            value={receita.descricao}
+            value={despesa.descricao}
             onChange={(e) =>
-              setReceita({ ...receita, descricao: e.target.value })
+              setDespesa({ ...despesa, descricao: e.target.value })
             }
           />
           <input
             type="text"
             placeholder="Data"
-            value={receita.data}
-            onChange={(e) => setReceita({ ...receita, data: e.target.value })}
+            value={despesa.data}
+            onChange={(e) => setDespesa({ ...despesa, data: e.target.value })}
           />
           <input
             type="text"
             placeholder="Tipo"
-            value={receita.tipo}
-            onChange={(e) => setReceita({ ...receita, tipo: e.target.value })}
+            value={despesa.tipo}
+            onChange={(e) => setDespesa({ ...despesa, tipo: e.target.value })}
           />
           <button type="submit">Adicionar Despesa</button>
         </form>
