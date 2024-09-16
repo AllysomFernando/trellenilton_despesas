@@ -14,12 +14,6 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
   const [receitas, setReceitas] = useState<IReceita[]>([]);
   const navigate = useNavigate();
 
-  async function getUserContext() {
-    const user = localStorage.getItem('user');
-    if (user) {
-      setUser(JSON.parse(user));
-    }
-  }
   async function setUserContext(user: User) {
     localStorage.setItem('user', JSON.stringify(user));
     setUser(user);
@@ -35,10 +29,6 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
     localStorage.setItem('receitas', JSON.stringify(receitas));
     setReceitas(receitas);
   }
-
-  useEffect(() => {
-    getUserContext();
-  }, []);
 
   return (
     <AuthContext.Provider
