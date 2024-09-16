@@ -7,6 +7,7 @@ import Dashboard from '../pages/Dashboard';
 import Login from '../pages/Login';
 import Footer from '../componentes/Footer';
 import { AuthProvider } from '../context/AuthContext';
+import Cadastro from '../pages/Cadastro';
 
 export default function Router() {
   return (
@@ -20,6 +21,7 @@ export default function Router() {
             <Route path="*" element={<h1>Página não encontrada</h1>} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Cadastro />} />
           </Routes>
         </AuthProvider>
       </main>
