@@ -21,7 +21,12 @@ export const S = {
       padding: 0;
     }
   `,
-
+  PieChartsGrid: styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    margin: 20px 0;
+  `,
   ListItem: styled.li`
     display: flex;
     justify-content: space-between;
