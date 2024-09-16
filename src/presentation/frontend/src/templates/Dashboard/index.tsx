@@ -39,7 +39,18 @@ export default function DashboardTemplate() {
     data: '',
     categoria: { name: '' },
   });
-
+  const totalReceitas = receitas.reduce(
+    (acc, receita) => acc + receita.valor,
+    0,
+  );
+  const totalDespesas = despesas.reduce(
+    (acc, despesa) => acc + despesa.valor,
+    0,
+  );
+  const comparativoData = [
+    { name: 'Receitas', valor: totalReceitas },
+    { name: 'Despesas', valor: totalDespesas },
+  ];
   const data = despesas
     .map((despesa) => ({
       name: despesa.name,
@@ -73,81 +84,86 @@ export default function DashboardTemplate() {
   return (
     <S.Container>
       <h2>Dashboard</h2>
-      <p>Seja bem-vindo ao seu dashboard, {user.name}!</p>
+      <p>Bem-vindo, {user.name}!</p>
+      <S.PieChartsGrid>
+        {/* Gráfico de Receitas */}
+        <div>
+          <h3>Receitas por Categoria</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={receitas}
+                dataKey="valor"
+                nameKey="categoria.name"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                fill="#82ca9d"
+              >
+                {receitas.map((_, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
 
-      <S.PieChartsContainer>
-        <h3>Tipos de Receitas</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <PieChart>
-            <Pie
-              data={receitas}
-              dataKey="valor"
-              nameKey="categoria"
-              cx="50%"
-              cy="50%"
-              outerRadius={80}
-              fill="#8884d8"
-            >
-              {receitas.map((_, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
+        <div>
+          <h3>Despesas por Categoria</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={despesas}
+                dataKey="valor"
+                nameKey="categoria.name"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                fill="#8884d8"
+              >
+                {despesas.map((_, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
 
-        <h3>Tipos de Despesas</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <PieChart>
-            <Pie
-              data={despesas}
-              dataKey="valor"
-              nameKey="categoria"
-              cx="50%"
-              cy="50%"
-              outerRadius={80}
-              fill="#82ca9d"
-            >
-              {despesas.map((_, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
-
-        <h3>Receitas e Despesas</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <PieChart>
-            <Pie
-              data={data}
-              dataKey="valor"
-              nameKey="tipo"
-              cx="50%"
-              cy="50%"
-              outerRadius={80}
-              fill="#82ca9d"
-            >
-              {data.map((_, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
-      </S.PieChartsContainer>
+        <div>
+          <h3>Comparativo de Receitas e Despesas</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={comparativoData}
+                dataKey="valor"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                fill="#FF8042"
+              >
+                {comparativoData.map((_, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </S.PieChartsGrid>
 
       <S.ListSection>
         <h3>Despesas</h3>
@@ -155,13 +171,7 @@ export default function DashboardTemplate() {
           {despesas.map((despesa) => (
             <S.ListItem key={despesa.id}>
               <span>{despesa.name}</span>
-              <button
-                onClick={() => {
-                  deleteDespesa(despesa.id);
-                }}
-              >
-                Excluir
-              </button>
+              <button onClick={() => deleteDespesa(despesa.id)}>Excluir</button>
             </S.ListItem>
           ))}
         </ul>
@@ -173,13 +183,7 @@ export default function DashboardTemplate() {
           {receitas.map((receita) => (
             <S.ListItem key={receita.id}>
               <span>{receita.name}</span>
-              <button
-                onClick={() => {
-                  deleteReceita(receita.id);
-                }}
-              >
-                Excluir
-              </button>
+              <button onClick={() => deleteReceita(receita.id)}>Excluir</button>
             </S.ListItem>
           ))}
         </ul>
