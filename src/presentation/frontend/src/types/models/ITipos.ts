@@ -1,4 +1,4 @@
-export interface ITipos {
+export interface ICategoria {
   id?: string;
   name: string;
 }
