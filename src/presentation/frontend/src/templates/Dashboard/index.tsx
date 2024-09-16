@@ -80,7 +80,7 @@ export default function DashboardTemplate() {
       ...receita,
       id: Date.now().toString(),
     };
-    setReceitasContext([...receitas, receita]);
+    setReceitasContext([...receitas, novaReceita]);
   };
 
   const deleteDespesa = (id: string) => {
