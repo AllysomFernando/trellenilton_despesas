@@ -28,6 +28,19 @@ export const S = {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
+    justify-content: center;
+  `,
+  GraphDiv: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 550px;
   `,
   ListDiv: styled.div`
     display: flex;
@@ -51,9 +64,8 @@ export const S = {
   `,
   PieChartsGrid: styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 30px;
-    margin: 20px 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   `,
   ListItem: styled.li`
     width: 50%;
@@ -85,7 +97,6 @@ export const S = {
     gap: 100px;
     align-items: center;
     justify-content: center;
-    
   `,
   FormSection: styled.section`
     width: 600px;
