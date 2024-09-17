@@ -176,26 +176,25 @@ export default function DashboardTemplate() {
 
         <S.ListDiv>
           <S.ListSection>
-            <S.h3>Despesas</S.h3>
-            <ul>
-              {despesas.map((despesa) => (
-                <S.ListItem key={despesa.id}>
-                  <span>{despesa.name}</span>
-                  <button onClick={() => deleteDespesa(despesa.id)}>
-                    Excluir
-                  </button>
-                </S.ListItem>
-              ))}
-            </ul>
-          </S.ListSection>
-
-          <S.ListSection>
             <S.h3>Receitas</S.h3>
             <ul>
               {receitas.map((receita) => (
                 <S.ListItem key={receita.id}>
                   <span>{receita.name}</span>
                   <button onClick={() => deleteReceita(receita.id)}>
+                    Excluir
+                  </button>
+                </S.ListItem>
+              ))}
+            </ul>
+          </S.ListSection>
+          <S.ListSection>
+            <S.h3>Despesas</S.h3>
+            <ul>
+              {despesas.map((despesa) => (
+                <S.ListItem key={despesa.id}>
+                  <span>{despesa.name}</span>
+                  <button onClick={() => deleteDespesa(despesa.id)}>
                     Excluir
                   </button>
                 </S.ListItem>
