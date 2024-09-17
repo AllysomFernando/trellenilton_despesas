@@ -41,7 +41,7 @@ export const S = {
     width: 100%;
     ul {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
