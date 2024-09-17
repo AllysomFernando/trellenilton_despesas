@@ -65,10 +65,19 @@ export const S = {
   `,
   PieChartsGrid: styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    @media (max-width: 1024px) {
-      grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    margin: 0 auto;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1440px) {
+      grid-template-columns: repeat(3, 1fr);
     }
   `,
 
