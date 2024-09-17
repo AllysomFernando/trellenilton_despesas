@@ -96,7 +96,7 @@ export default function DashboardTemplate() {
         <h2>Olá, {user.name}!</h2>
 
         <S.PieChartsGrid>
-          <div>
+          <S.GraphDiv>
             <S.h3>Receitas por Categoria</S.h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
@@ -120,9 +120,9 @@ export default function DashboardTemplate() {
                 <Legend />
               </PieChart>
             </ResponsiveContainer>
-          </div>
+          </S.GraphDiv>
 
-          <div>
+          <S.GraphDiv>
             <S.h3>Despesas por Categoria</S.h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
@@ -146,9 +146,9 @@ export default function DashboardTemplate() {
                 <Legend />
               </PieChart>
             </ResponsiveContainer>
-          </div>
+          </S.GraphDiv>
 
-          <div>
+          <S.GraphDiv>
             <S.h3>Comparativo de Receitas e Despesas</S.h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
@@ -171,7 +171,7 @@ export default function DashboardTemplate() {
                 <Tooltip />
               </PieChart>
             </ResponsiveContainer>
-          </div>
+          </S.GraphDiv>
         </S.PieChartsGrid>
 
         <S.ListDiv>
