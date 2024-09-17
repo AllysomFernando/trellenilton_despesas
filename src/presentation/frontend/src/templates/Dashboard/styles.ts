@@ -3,11 +3,9 @@ import { theme } from '../../styles/theme';
 
 export const S = {
   Container: styled.div`
-    max-width: 1920px;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
   `,
   Main: styled.main`
     width: 100%;
@@ -38,7 +36,7 @@ export const S = {
     justify-content: center;
   `,
   ListSection: styled.section`
-    width: 100%;
+    width: 600px;
     ul {
       display: flex;
       flex-direction: column;
@@ -47,7 +45,7 @@ export const S = {
     }
   `,
   SelectInput: styled.select`
-    padding: 10px ;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
   `,
@@ -65,6 +63,8 @@ export const S = {
     background: #fff;
     padding: 10px;
     border-radius: 5px;
+    flex-direction: column;
+
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     span {
       font-weight: bold;
@@ -85,10 +85,10 @@ export const S = {
     gap: 100px;
     align-items: center;
     justify-content: center;
+    
   `,
   FormSection: styled.section`
-    width: 50%;
-
+    width: 600px;
     margin: 20px 0;
     form {
       display: flex;
