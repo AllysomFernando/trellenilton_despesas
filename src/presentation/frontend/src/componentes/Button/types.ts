@@ -2,7 +2,7 @@ import { IconsNames } from '../../hooks/useIcon';
 
 export interface ButtonProps {
   title: string;
-  onPress: () => void;
+  onClick: () => void;
   isLoading?: boolean;
   variant: ButtonVariants;
   icon?: IconsNames;

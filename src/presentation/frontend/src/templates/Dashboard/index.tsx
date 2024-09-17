@@ -68,20 +68,30 @@ export default function DashboardTemplate() {
 
   const handleCadastroDespesas = async (e: React.FormEvent) => {
     e.preventDefault();
-    const novaDespesa: IDespesa = {
-      ...despesa,
-      id: Date.now().toString(),
-    };
+    const novaDespesa: IDespesa = { ...despesa, id: Date.now().toString() };
     await setDespesasContext([...despesas, novaDespesa]);
+    setDespesa({
+      name: '',
+      valor: '' as unknown as number,
+      id: '',
+      descricao: '',
+      data: '',
+      categoria: { name: '' },
+    });
   };
 
   const handleCadastroReceitas = async (e: React.FormEvent) => {
     e.preventDefault();
-    const novaReceita: IReceita = {
-      ...receita,
-      id: Date.now().toString(),
-    };
-    setReceitasContext([...receitas, novaReceita]);
+    const novaReceita: IReceita = { ...receita, id: Date.now().toString() };
+    await setReceitasContext([...receitas, novaReceita]);
+    setReceita({
+      name: '',
+      valor: '' as unknown as number,
+      id: '',
+      descricao: '',
+      data: '',
+      categoria: { name: '' },
+    });
   };
 
   const deleteDespesa = (id: string) => {
@@ -239,7 +249,7 @@ export default function DashboardTemplate() {
               <Button
                 variant="Main"
                 title="Adicionar Receita"
-                onPress={() => handleCadastroReceitas}
+                onClick={() => handleCadastroReceitas}
               />
             </form>
           </S.FormSection>
@@ -279,7 +289,7 @@ export default function DashboardTemplate() {
               <Button
                 variant="Main"
                 title="Adicionar Despesa"
-                onPress={() => handleCadastroDespesas}
+                onClick={() => handleCadastroDespesas}
               />
             </form>
           </S.FormSection>

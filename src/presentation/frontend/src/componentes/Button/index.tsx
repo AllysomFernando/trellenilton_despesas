@@ -5,7 +5,7 @@ import { useButtonStyles } from '../../hooks/useButtonStyles';
 
 export const Button = ({
   title,
-  onPress,
+  onClick,
   isLoading = false,
   variant,
   icon,
@@ -13,7 +13,7 @@ export const Button = ({
   const ButtonComponent = useButtonStyles(variant);
 
   return (
-    <ButtonComponent onClick={onPress} disabled={isLoading}>
+    <ButtonComponent onClick={onClick} disabled={isLoading}>
       {icon && <Icon name={icon} color="white" width={20} height={20} />}
       {isLoading ? <span>...</span> : <span>{title}</span>}
     </ButtonComponent>

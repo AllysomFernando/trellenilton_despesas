@@ -67,7 +67,11 @@ export const S = {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    }
   `,
+
   ListItem: styled.li`
     width: 50%;
     display: flex;
