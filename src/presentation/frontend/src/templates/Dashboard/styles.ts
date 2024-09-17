@@ -61,6 +61,7 @@ export const S = {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 20px;
   `,
   PieChartsGrid: styled.div`
     display: grid;
