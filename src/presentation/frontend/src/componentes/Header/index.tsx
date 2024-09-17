@@ -70,7 +70,7 @@ export default function NavBar() {
         {user ? (
           <S.ButtonContainer>
             <Button
-              onPress={() => navigate('/dashboard')}
+              onClick={() => navigate('/dashboard')}
               title="Dashboard"
               variant="Outline"
             />
@@ -78,13 +78,13 @@ export default function NavBar() {
         ) : (
           <S.ButtonContainer>
             <Button
-              onPress={handlePressLogin}
+              onClick={handlePressLogin}
               title="Login"
               variant="Outline"
             />
 
             <Button
-              onPress={handlePressCadastro}
+              onClick={handlePressCadastro}
               title="Cadastro"
               variant="Main"
             />
