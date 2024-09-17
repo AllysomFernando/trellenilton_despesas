@@ -235,20 +235,7 @@ export default function DashboardTemplate() {
                 <option value="Investimentos">Investimentos</option>
                 <option value="Outros">Outros</option>
               </S.SelectInput>
-              <input
-                type="text"
-                placeholder="Descrição"
-                onChange={(e) =>
-                  setReceita({ ...receita, descricao: e.target.value })
-                }
-              />
-              <input
-                type="text"
-                placeholder="Data"
-                onChange={(e) =>
-                  setReceita({ ...receita, data: e.target.value })
-                }
-              />
+
               <Button
                 variant="Main"
                 title="Adicionar Receita"
@@ -288,20 +275,7 @@ export default function DashboardTemplate() {
                 <option value="Moradia">Moradia</option>
                 <option value="Outros">Outros</option>
               </S.SelectInput>
-              <input
-                type="text"
-                placeholder="Descrição"
-                onChange={(e) =>
-                  setDespesa({ ...despesa, descricao: e.target.value })
-                }
-              />
-              <input
-                type="text"
-                placeholder="Data"
-                onChange={(e) =>
-                  setDespesa({ ...despesa, data: e.target.value })
-                }
-              />
+
               <Button
                 variant="Main"
                 title="Adicionar Despesa"
