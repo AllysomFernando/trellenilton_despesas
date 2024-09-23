@@ -7,8 +7,9 @@ export const S = {
     align-items: center;
     justify-content: center;
     width: 600px;
-    height: 100vh;
+    height: 50vh;
     gap: 1rem;
+    margin: 0 auto;
   `,
   Title: styled.h1`
     color: #333;
