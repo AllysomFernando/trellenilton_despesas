@@ -17,7 +17,7 @@ export default function Router() {
     <BrowserRouter>
       <Header />
       <main>
-        <GlobalStyles />
+          <GlobalStyles />
         <AuthProvider>
           <ThemeProvider theme={theme}>
             <Routes>
