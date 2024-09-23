@@ -1,3 +1,4 @@
+import React from 'react';
 import { IconsNames, useIcon } from '../../hooks/useIcon';
 import { ImgHTMLAttributes } from 'react';
 

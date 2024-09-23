@@ -1,11 +1,13 @@
+import React from 'react';
 import { Utility } from '../../styles/utility';
 import { S } from './styles';
 import Logo from '../../assets/images/logo.svg';
 import { Button } from '../Button';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Icon } from '../Icon/index';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+
 export default function NavBar() {
   const [mobile, setMobile] = useState(false);
   const user = localStorage.getItem('user');

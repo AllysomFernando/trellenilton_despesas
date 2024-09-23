@@ -52,19 +52,6 @@ export default function DashboardTemplate() {
     { name: 'Receitas', valor: totalReceitas },
     { name: 'Despesas', valor: totalDespesas },
   ];
-  const data = despesas
-    .map((despesa) => ({
-      name: despesa.name,
-      valor: despesa.valor,
-      tipo: 'Despesa',
-    }))
-    .concat(
-      receitas.map((receita) => ({
-        name: receita.name,
-        valor: receita.valor,
-        tipo: 'Receita',
-      })),
-    );
 
   const handleCadastroDespesas = async (e: React.FormEvent) => {
     e.preventDefault();
